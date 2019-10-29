@@ -1,0 +1,31 @@
+<table class="table col-md-6 mx-auto table-stirped">
+
+    <thead class="thead">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Availability</th>
+    </thead>
+    <tbody>
+        {{#each players }}
+
+
+        <tr>
+            <td>{{increment @index}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.score}}</td>
+            <td><button class="btn {{#if this.availability}}
+                btn-success
+            {{else}}
+                 btn-danger
+            {{/if}} availability"> {{#if this.availability}}
+                    Yes
+                    {{else}}
+                    No
+                    {{/if}}
+
+                </button> </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
