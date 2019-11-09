@@ -1,0 +1,30 @@
+<div class="container mt 2">
+    <h3 class="pb-2">Enter values to insert</h3>
+    <form action="/insert" method="POST">
+        <div class="form-group">
+            <label>Enter Username</label>
+            <input class="form-control" type="text" name="username" id="name" required placeholder="Enter Username"><br>
+        </div>
+        <div class="form-group">
+            <label>Enter Name</label>
+            <input class="form-control" type="text" name="name" id="name" required placeholder="Enter Name"><br>
+        </div>
+        <div class="d-flex">
+            <div class="flex-fill">
+                <label>Enter Age</label>
+                <input class="form-control" type="text" name="age" id="age" required placeholder="Enter Age">
+            </div>
+
+            <div class="flex-fill">
+                <label>Enter City</label>
+                <input class="form-control" type="text" name="city" id="city" required placeholder="Enter City">
+            </div>
+        </div>
+        <br>
+
+
+        <div class="text-center form-group">
+            <input class="btn btn-success form-control" type="submit" value="Insert">
+        </div>
+    </form>
+</div>

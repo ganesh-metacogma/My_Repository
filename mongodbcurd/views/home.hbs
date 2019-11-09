@@ -1,0 +1,38 @@
+<div class="container mt-2">
+    <h1 class="pb-2 text-center">Welcome to Users Page</h1>
+    <div class="d-flex">
+        <a href="/insertpage" class="btn btn-success flex-fill">Insert</a>
+        <a href="/insertpage" class="btn btn-warning flex-fill">Update</a>
+        <a href="/insertpage" class="btn btn-danger flex-fill">Delete</a>
+    </div>
+    {{#if data}}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each data }}
+            <tr>
+                <td>{{this.username}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.age}}</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+    {{else}}
+    <h1>{{message}}</h1>
+    {{/if}}
+
+
+
+</div>
