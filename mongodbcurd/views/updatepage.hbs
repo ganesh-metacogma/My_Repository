@@ -1,9 +1,10 @@
 <div class="container mt 2">
     <h3 class="pb-2">Enter values to Update</h3>
-    <form action="/update" method="POST">
+    <form action="/users/?_method=PUT" method="POST">
         <div class="form-group">
             <label>Enter Username</label>
-            <input class="form-control" type="text" name="username" id="name" required placeholder="Enter Username"><br>
+            <input class="form-control" type="text" name="username" id="username" required
+                placeholder="Enter Username"><br>
         </div>
         <div class="form-group">
             <label>Enter Name</label>
@@ -24,7 +25,7 @@
 
 
         <div class="text-center form-group">
-            <input class="btn btn-success form-control" type="submit" value="Insert">
+            <input class="btn btn-success form-control" type="submit" value="Update">
         </div>
     </form>
 </div>

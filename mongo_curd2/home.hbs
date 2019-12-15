@@ -1,0 +1,80 @@
+<div class=" m-5">
+    <h1>Attainu Eagle</h1>
+    ​
+    ​
+    <table id="search-table" class="table table-striped">
+        <thead>
+            ​
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Delete</th>
+            </tr>
+            ​
+        </thead>
+        <tbody id="table-body">
+            {{#each value}}
+            <tr>
+                <td>{{this.username}}</td>
+                <td>{{{this.name}}}</td>
+                <td>{{this.age}}</td>
+                <td>{{this.city}}</td>
+                <td>
+                    <form action="/users/{{this.username}}?_method=DELETE" method="POST" class="form-group">
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="jumbotron w-50 md-5">
+            <h3>Insert User</h3>
+            <form action="/users" method="post" class="form-group">
+                <div>
+                    <label for="title">User Name</label>
+                    <input type="text" name="username" class="form-control mb-3">
+                </div>
+                <div>
+                    <label for="content">Name</label>
+                    <input type="text" name="name" class="form-control mb-3">
+                </div>
+                <div>
+                    <label for="author">Age</label>
+                    <input type="text" name="age" class="form-control mb-3">
+                </div>
+                <div>
+                    <label for="author">City</label>
+                    <input type="text" name="city" class="form-control mb-3">
+                </div>
+                <button type="submit" class="btn btn-success mt-3">INSERT</button>
+            </form>
+        </div>
+        ​
+        <div class="jumbotron w-50 md-5">
+            <h3>Update User</h3>
+            <form action="/users/id?_method=PUT" method="POST" class="form-group">
+                <div>
+                    <label>Enter Your User Name</label>
+                    <input type="text" name="username" class="form-control mb-3">
+                </div>
+                <div>
+                    <label>Update Name</label>
+                    <input type="text" name="name" class="form-control mb-3">
+                </div>
+                <div>
+                    <label>Update Age</label>
+                    <input type="text" name="age" class="form-control mb-3">
+                </div>
+                <div>
+                    <label>Update City</label>
+                    <input type="text" name="city" class="form-control mb-3">
+                </div>
+                <button type="submit" class="btn btn-warning mt-3">UPDATE</button>
+            </form>
+        </div>
+    </div>
+</div>
