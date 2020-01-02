@@ -2,6 +2,7 @@ class Animal {
   constructor(animalName, nickName) {
     this.animalName = animalName;
     this.nickName = nickName;
+    this.food = [];
   }
 
   breath() {
@@ -10,6 +11,15 @@ class Animal {
 
   sleep() {
     return `(${this.animalName}): ${this.nickName} is sleeping...`;
+  }
+
+  set foodName(foodName) {
+    console.log(`I am have ${foodName} and its tasty.`);
+    return this.food.push(foodName);
+  }
+
+  get foodName() {
+    return this.food;
   }
 }
 
@@ -43,8 +53,6 @@ class Persian extends Cat {
   }
 }
 
-let tom = new Persian("tom");
-console.log(tom.breath());
-console.log(tom.meow());
-console.log(tom.jump());
-console.log(tom.sleep());
+let tom = new Persian();
+tom.foodName = "Fish";
+console.log(tom.food);
