@@ -1,9 +1,12 @@
 class Animal {
   constructor() {
-    this.food;
+    this.food=[];
   }
 
+
+
   set food(foodName) {
+    console.log(`i am having ${foodName}.`)
     return (this.food = foodName);
   }
   get food() {

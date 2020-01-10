@@ -1,0 +1,79 @@
+<div class="jumbotron" style="height: 500px;">
+    <div class="row">
+        <div class="col-md-3">
+            <form action="/cart/add" method="POST" id="add">
+                <div class="form-group">
+                    <label for="productName">Select a Product</label>
+                    <select class="form-control" id="productName" name="productName" required>
+                        <option>Pen</option>
+                        <option>Pencil</option>
+                        <option>Rubber</option>
+                        <option>Scale</option>
+                        <option>Pencil Sharpner</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price ₹</label>
+                    <input type="text" class="form-control bg-white" name="productPrice" id="price" value="20" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Choose a Quantity</label>
+                    <select class="form-control" id="quantity" name="productQuantity" required>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-secondary">Add to Cart</button>
+            </form>
+        </div>
+        <div class="col-md-8 mx-auto">
+            {{#if value}}
+            <table class="table">
+                <thead class="bg-secondary text-white">
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th colspan="2">Qty</th>
+                        <th>Line Price</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    {{#each value}}
+                    <tr>
+                        <td class="data"><strong>{{this.productName}}</strong></td>
+                        <td class="data">₹{{this.productPrice}}</td>
+                        <td class="data">
+                            <form action="/cart/update/{{this.productQuantity}}/sub/{{this._id}}?_method=PUT"
+                                method="POST" class="form-group" style="display: inline">
+                                <button type="submit" class="btn pt-0">-</button>
+                            </form>
+                            {{this.productQuantity}}
+                            <form action="/cart/update/{{this.productQuantity}}/add/{{this._id}}?_method=PUT"
+                                method="POST" class="form-group" style="display: inline">
+                                <button type="submit" class="btn pt-0">+</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/cart/remove/{{this._id}}?_method=DELETE" method="POST" class="form-group"
+                                style="display: inline">
+                                <button type="submit" class="btn pt-0">&times;</button>
+                            </form>
+                        </td>
+                        <td class="data">₹{{#linePrice this.productQuantity this.productPrice}}{{/linePrice}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot class="bg-secondary text-white">
+                    <tr>
+                        <td colspan="4"><strong>Total</strong></td>
+                        <td><strong>₹{{sum}}</strong></td>
+                    </tr>
+                    </tfootclass="bg-secondary text-white">
+            </table>
+            {{/if}}
+        </div>
+    </div>
+</div>
