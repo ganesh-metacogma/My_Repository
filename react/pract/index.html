@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      class Input extends React.Component {
+        state = {
+          name: "",
+          email: "",
+          city: ""
+        };
+
+        handleName = event => {
+          this.setState = {
+            name: event.target.value
+          };
+        };
+        handleEmail = event => {
+          this.setState = {
+            email: event.target.value
+          };
+        };
+        handleCity = event => {
+          this.setState = {
+            city: event.target.value
+          };
+        };
+
+        sendDataToApp = () => {
+          console.log(this.state);
+        };
+
+        render() {
+          return (
+            <div className="mt-5 mb-5">
+              <input
+                onChange={event => this.handleName(event)}
+                value={this.state.name}
+                type="text"
+                placeholder="Name"
+              />
+              <input
+                onChange={event => this.handleEmail(event)}
+                value={this.state.email}
+                type="email"
+                placeholder="email"
+              />
+              <input
+                onChange={event => this.handleCity(event)}
+                value={this.state.city}
+                type="text"
+                placeholder="city"
+              />
+              <button onClick={() => this.sendDataToApp()}>Submit</button>
+            </div>
+          );
+        }
+      }
+
+      class Wrapper extends React.Component {
+        addToList = data => {
+          console.log(`Here>>>${data}`);
+        };
+
+        render() {
+          return (
+            <div className="container text-center">
+              <Input sendDataFromInput={data => this.addToList(data)} />
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Wrapper />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

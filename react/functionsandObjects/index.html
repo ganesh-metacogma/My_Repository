@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const Button = ({ name, number = "5", boot = "btn" }) => {
+        state = { time: new Date().toLocaleString };
+        return (
+          <button className={boot}>
+            {name},{number}
+          </button>
+        );
+      };
+
+      const footer = (
+        <div className="text-white bg-dark container-fluid p-5 text-center">
+          <div className="footer">
+            Copyrights @2020
+            <Button name="save" number="1" boot="btn btn-success "></Button>
+            <Button name="edit" number="1" boot="btn btn-secondary "></Button>
+            <Button name="delete" number="1" boot="btn btn-danger "></Button>
+          </div>
+        </div>
+      );
+
+      ReactDOM.render(footer, document.getElementById("root"));
+    </script>
+  </body>
+</html>
