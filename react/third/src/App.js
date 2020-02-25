@@ -7,14 +7,9 @@ class App extends React.Component {
     name: ""
   };
   handleName(name) {
-    this.setState(
-      {
-        name: name
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      name: name
+    });
   }
 
   render() {
@@ -27,6 +22,7 @@ class App extends React.Component {
               type="text"
               value={this.state.name}
               onChange={event => {
+                console.log(event.target.value);
                 this.handleName(event.target.value);
               }}
             />
