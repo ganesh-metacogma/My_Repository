@@ -3,59 +3,51 @@ import { connect } from "react-redux";
 
 class List extends React.Component {
   render() {
-    let state = {
-      todos: this.props.todos
-    };
+    let data = this.props.todos;
+    let dateObj = new Date();
+    let month = dateObj.getUTCMonth() + 1; //months from 1-12
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+    let newData;
 
-    const handleFilter = value => {
-      var dateObj = new Date();
-      var month = dateObj.getUTCMonth() + 1; //months from 1-12
-      var day = dateObj.getUTCDate();
-      var year = dateObj.getUTCFullYear();
+    console.log("var", typeof month);
+    console.log("props", typeof this.props.display);
 
-      switch (value) {
-        case "previous":
-          return filterPrevious(year, month, day);
-
-        case "next":
-          return filterNext(year, month, day);
-
-        default:
-          return filterToday(year, month, day);
-      }
-    };
-
-    const filterPrevious = (year, month, day) => {
-      let newData = state.todos.filter((elem, index) => {
+    if (this.props.display === "-1") {
+      console.log("-1");
+      newData = this.props.todos.filter((elem, index) => {
         let newdate = elem.date.split("-");
-
-        return year > newdate[0] || month > newdate[1] || day > newdate[2];
-      });
-
-      state.todos = newData;
-      this.props.dispatch({ type: "previous", payload: newData });
-    };
-
-    const filterNext = (year, month, day) => {
-      let newData = state.todos.filter((elem, index) => {
-        let newdate = elem.date.split("-");
-
-        return year < newdate[0] || month < newdate[1] || day < newdate[2];
-      });
-
-      state.todos = newData;
-    };
-    const filterToday = (year, month, day) => {
-      let newData = state.todos.filter((elem, index) => {
-        let newdate = elem.date.split("-");
+        console.log("newdate", newdate);
 
         return (
-          year === newdate[0] || month === newdate[1] || day === newdate[2]
+          year > Number(newdate[0]) ||
+          month > Number(newdate[1]) ||
+          day > Number(newdate[2])
         );
       });
 
-      state.todos = newData;
-    };
+      data = newData;
+    }
+    if (this.props.display === "1") {
+      console.log("1");
+      newData = this.props.todos.filter((elem, index) => {
+        return new Date(elem.date) > new Date();
+      });
+      data = newData;
+    }
+    if (this.props.display === "0") {
+      console.log("0");
+      newData = this.props.todos.filter((elem, index) => {
+        let newdate = elem.date.split("-");
+
+        return (
+          year === Number(newdate[0]) &&
+          month === Number(newdate[1]) &&
+          day === Number(newdate[2])
+        );
+      });
+      data = newData;
+    }
 
     return (
       <Fragment>
@@ -63,16 +55,19 @@ class List extends React.Component {
           <div>
             <select
               onChange={e => {
-                handleFilter(e.target.value);
+                this.props.dispatch({
+                  type: "display",
+                  payload: e.target.value
+                });
               }}
             >
-              <option>today</option>
-              <option>previous</option>
-              <option>next</option>
+              <option value="0">today</option>
+              <option value="-1">previous</option>
+              <option value="1">next</option>
             </select>
           </div>
           <center>
-            {state.todos.map((elem, index) => {
+            {data.map((elem, index) => {
               console.log("List", elem);
 
               return (
@@ -90,7 +85,8 @@ class List extends React.Component {
 
 const fromStore = state => {
   return {
-    todos: state.todos
+    todos: state.todos,
+    display: state.display
   };
 };
 

@@ -31,10 +31,11 @@ class App extends React.Component {
             onChange={event => {
               this.handletemp(event.target.value);
             }}
-            value={this.state.temp}
+            value={this.state.todo}
           />
           <input
             type="date"
+            value={this.state.date}
             onChange={event => {
               this.handleDate(event.target.value);
             }}

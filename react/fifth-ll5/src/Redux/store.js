@@ -1,20 +1,15 @@
 import { createStore } from "redux";
 
 let inState = {
-  todos: [],
-  display: null
+  todos: []
 };
 
 const appReducer = (state = inState, action) => {
   let copy = { ...state };
-  console.log("action", action.payload);
-  switch (action.type) {
-    case "change":
-      copy.todos = [...copy.todos, action.payload];
-      return copy;
 
-    case "display":
-      copy.display = action.payload;
+  switch (action.type) {
+    case "add":
+      copy.todos = action.payload;
       return copy;
 
     default:
