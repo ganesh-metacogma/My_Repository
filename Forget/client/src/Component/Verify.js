@@ -20,7 +20,10 @@ class Verify extends React.Component {
     axios
       .post(`http://localhost:3020/step3`, this.state)
       .then((res) => {
-        this.props.dispatch({ type: "status", payload: res.data });
+        console.log("Verified", res);
+        if (res.data === "Verified") {
+          return this.props.dispatch({ type: "status", payload: res.data });
+        }
       })
       .catch((error) => {
         throw error;
@@ -46,7 +49,7 @@ class Verify extends React.Component {
           onClick={() => {
             this.handleSend();
           }}
-          disabled={!this.state.number ? true : false}
+          disabled={!this.state.token ? true : false}
         >
           Verify
         </button>

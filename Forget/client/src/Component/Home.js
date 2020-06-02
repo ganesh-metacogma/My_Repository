@@ -9,14 +9,19 @@ class Home extends React.Component {
   };
 
   handelChange(e) {
-    this.setState({
-      number: e.target.value,
-    });
+    this.setState(
+      {
+        mobile: e.target.value,
+      },
+      () => {
+        console.log("state", this.state.mobile);
+      }
+    );
   }
 
   handleSend() {
     axios
-      .post("http://localhost:3020/step2", this.state.number)
+      .post("http://localhost:3020/step2", this.state)
       .then((res) => {
         this.props.dispatch({ type: "id", payload: res.data });
       })
@@ -26,12 +31,13 @@ class Home extends React.Component {
   }
   render() {
     if (this.props.id) return <Redirect to="/verify" />;
+    console.log("ID", this.props.id);
     return (
       <Fragment>
         <label>Mobile</label>
         <input
           type="number"
-          value={this.state.number}
+          value={this.state.mobile}
           name="mobile"
           onChange={(e) => {
             this.handelChange(e);
@@ -42,7 +48,7 @@ class Home extends React.Component {
           onClick={() => {
             this.handleSend();
           }}
-          disabled={!this.state.number ? true : false}
+          disabled={!this.state.mobile ? true : false}
         >
           Send me Otp
         </button>

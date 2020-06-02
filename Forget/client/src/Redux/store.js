@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 
 let inState = {
-  id: null,
+  id: "",
   status: false,
 };
 
