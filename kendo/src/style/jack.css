@@ -1,0 +1,155 @@
+#Create_a_Study {
+  position: absolute;
+  left: 499px;
+  top: 73px;
+  overflow: visible;
+  width: 335px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  color: rgba(5, 63, 104, 1);
+}
+
+input {
+  width: 327px;
+  height: 48px;
+  border-color: rgba(5, 63, 104, 1);
+  border-radius: 5px;
+  border-width: 1px;
+  margin-top: 10px;
+}
+
+select {
+  width: 333px;
+  height: 48px;
+  border-color: rgba(5, 63, 104, 1);
+  border-radius: 5px;
+  border-width: 1px;
+  margin-top: 10px;
+}
+
+#Protocol_ID,
+#Indication,
+#Theropeutic_Area,
+#Compound,
+#part,
+#part1 {
+  position: absolute;
+  left: 544px;
+  overflow: visible;
+  width: 102px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  color: rgba(5, 63, 104, 1);
+}
+
+#part1 {
+  display: flex;
+  top: 750px;
+}
+
+#cancel,
+#continue {
+  min-width: 120px;
+  max-height: 36px;
+  border: 1px solid #554f91;
+  background-color: transparent;
+  color: #554f91;
+  border-radius: 40px;
+  font-weight: 500;
+}
+
+#Protocol_ID {
+  top: 250px;
+}
+#Indication {
+  top: 350px;
+}
+#Theropeutic_Area {
+  top: 450px;
+}
+#Compound {
+  top: 550px;
+}
+#part {
+  top: 650px;
+  display: flex;
+}
+
+.Phase,
+.Study_type {
+  width: 164px;
+}
+
+#Study_type {
+  margin-left: 8px;
+}
+
+#ID_1,
+#ID_2,
+#ID_3 {
+  position: relative;
+  top: 105px;
+  overflow: visible;
+  width: 14px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 33px;
+  color: rgba(255, 255, 255, 1);
+}
+#ID_1 {
+  left: 441px;
+}
+#ID_2 {
+  left: 688px;
+}
+#ID_3 {
+  left: 925px;
+}
+
+.Ellipse_1,
+.Ellipse_2,
+.Ellipse_3 {
+  position: relative;
+  overflow: visible;
+  width: 44px;
+  height: 44px;
+
+  top: 151px;
+}
+.Ellipse_1 {
+  left: 427px;
+}
+.Ellipse_2 {
+  left: 646px;
+}
+.Ellipse_3 {
+  left: 855px;
+}
+
+.Line_6,
+.Line_7 {
+  overflow: visible;
+  position: relative;
+  width: 180px;
+  height: 3px;
+  top: 72.5px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.Line_6 {
+  left: 489.5px;
+}
+.Line_7 {
+  left: 568.5px;
+}
