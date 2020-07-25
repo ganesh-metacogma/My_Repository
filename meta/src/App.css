@@ -7,9 +7,13 @@
 #sidebar {
   width: 15vw;
 }
-#op {
+#nav_option {
   width: 70vw;
   display: flex;
+}
+#sub {
+  display: flex;
+  justify-content: space-between;
 }
 #nav {
   padding-top: 5px;
