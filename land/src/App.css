@@ -1,0 +1,95 @@
+@import "~antd/dist/antd.css";
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#create {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.278));
+}
+#dashboard {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.341));
+}
+#data {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.412));
+}
+#lib {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4));
+}
+#impex {
+  filter: drop-shadow(0px 3px 6px rgba(39, 40, 45, 0.702));
+}
+#document_in {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.439));
+}
+#connector {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.431));
+}
+#meta {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.522));
+}
+
+.services {
+  width: 176px;
+  white-space: nowrap;
+  text-align: left;
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  color: rgba(2, 125, 255, 1);
+  letter-spacing: 0.14px;
+}
+
+.service-cards {
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.271));
+  border-radius: 5px;
+}
+
+.service-titles {
+  width: 128px;
+  word-wrap: break-word;
+  white-space: nowrap;
+  position: absolute;
+  top: 108px;
+  font-family: Calibri;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  color: rgba(106, 98, 96, 1);
+  letter-spacing: 0.14px;
+}

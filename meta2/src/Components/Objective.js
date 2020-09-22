@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
-import { Modal, Layout, Button } from "antd";
-import { Tabs } from "antd";
+import { Modal, Layout, Button, Tabs, Drawer } from "antd";
 
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -168,14 +167,16 @@ class Objective extends React.Component {
           title="Endpoint"
           visible={this.state.m_endpoint}
           onOk={this.modalHide}
-          onCancel={this.modalHide}
+          closable={false}
+          onClose={this.modalHide}
           body={"This is Endpoint"}
         />
         <Pop
           title="Assessment"
           visible={this.state.m_assessment}
           onOk={this.modalHide}
-          onCancel={this.modalHide}
+          closable={false}
+          onClose={this.modalHide}
           body={"This is Assessment"}
         />
       </Fragment>

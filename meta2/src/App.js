@@ -53,7 +53,7 @@ class App extends React.Component {
               </Menu>
             </Sider>
             <Layout>
-              <Assessment />
+              <Objective />
             </Layout>
           </Layout>
         </Layout>
